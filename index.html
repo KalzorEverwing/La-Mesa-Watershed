@@ -45,7 +45,7 @@
         <script src="data/TerrestrialTeamPoints_5.js"></script>
         <script>
         var map = L.map('map', {
-            zoomControl:false, maxZoom:28, minZoom:1
+            zoomControl:false, maxZoom:35, minZoom:1
         })
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
@@ -115,9 +115,9 @@
             opacity: 1.0,
             attribution: '',
             minZoom: 1,
-            maxZoom: 100,
-            minNativeZoom: 0,
-            maxNativeZoom: 100
+            maxZoom: 35,
+            minNativeZoom: 1,
+            maxNativeZoom: 35
         });
         layer_GoogleTerrainHybrid_0;
         map.addLayer(layer_GoogleTerrainHybrid_0);
@@ -127,10 +127,10 @@
             pane: 'pane_GoogleSatelliteBaseMap_1',
             opacity: 1.0,
             attribution: '',
-            minZoom: 1,
-            maxZoom: 100,
+            minZoom: 0,
+            maxZoom: 35,
             minNativeZoom: 0,
-            maxNativeZoom: 100
+            maxNativeZoom: 35
         });
         layer_GoogleSatelliteBaseMap_1;
         map.addLayer(layer_GoogleSatelliteBaseMap_1);
@@ -353,25 +353,25 @@
         bounds_group.addLayer(layer_TerrestrialTeamPoints_5);
         map.addLayer(layer_TerrestrialTeamPoints_5);
         map.on("zoomend", function(e) {
-            if (map.getZoom() <= 19 && map.getZoom() >= 0) {
+            if (map.getZoom() <= 50 && map.getZoom() >= 0) {
                 map.addLayer(layer_GoogleTerrainHybrid_0);
-            } else if (map.getZoom() > 19 || map.getZoom() < 0) {
+            } else if (map.getZoom() > 50 || map.getZoom() < 0) {
                 map.removeLayer(layer_GoogleTerrainHybrid_0);
             }
-            if (map.getZoom() <= 19 && map.getZoom() >= 11) {
+            if (map.getZoom() <=50 && map.getZoom() >= 11) {
                 map.addLayer(layer_GoogleSatelliteBaseMap_1);
-            } else if (map.getZoom() > 19 || map.getZoom() < 11) {
+            } else if (map.getZoom() > 50 || map.getZoom() < 11) {
                 map.removeLayer(layer_GoogleSatelliteBaseMap_1);
             }
         });
-            if (map.getZoom() <= 19 && map.getZoom() >= 0) {
+            if (map.getZoom() <= 50 && map.getZoom() >= 0) {
                 map.addLayer(layer_GoogleTerrainHybrid_0);
-            } else if (map.getZoom() > 19 || map.getZoom() < 0) {
+            } else if (map.getZoom() > 50 || map.getZoom() < 0) {
                 map.removeLayer(layer_GoogleTerrainHybrid_0);
             }
-            if (map.getZoom() <= 19 && map.getZoom() >= 11) {
+            if (map.getZoom() <= 50 && map.getZoom() >= 11) {
                 map.addLayer(layer_GoogleSatelliteBaseMap_1);
-            } else if (map.getZoom() > 19 || map.getZoom() < 11) {
+            } else if (map.getZoom() > 50 || map.getZoom() < 11) {
                 map.removeLayer(layer_GoogleSatelliteBaseMap_1);
             }
         var osmGeocoder = new L.Control.Geocoder({
